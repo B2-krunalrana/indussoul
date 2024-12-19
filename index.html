@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Coming Soon - Indus Soul</title>
+    <title>Indus Soul - Coming Soon</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
 
@@ -15,61 +15,60 @@
             align-items: center;
             height: 100vh;
             overflow: hidden;
-            background: #000;
+            background: linear-gradient(135deg, #0d1b2a, #1b263b);
             color: #fff;
-            text-align: center;
-        }
-
-        .background {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            overflow: hidden;
         }
 
         .container {
-            padding: 20px;
-            max-width: 500px;
-            width: 90%;
-            background: rgba(0, 0, 0, 0.8);
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-            opacity: 0;
+            position: relative;
+            text-align: center;
+            z-index: 10;
         }
 
         .logo {
-            margin: 20px auto;
-            max-width: 200px;
-            transform: scale(0);
+            width: 150px;
+            height: 150px;
+            margin: 0 auto;
+            opacity: 0;
+            transform: scale(0) rotate(0deg);
+        }
+
+        .product-box {
+            position: relative;
+            margin-top: 50px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            transform: translateY(50px);
         }
 
         h1 {
-            font-size: 24px;
+            font-size: 36px;
+            font-weight: bold;
             margin: 20px 0;
-            font-weight: 700;
-            transform: translateY(50px);
             opacity: 0;
+            transform: translateY(50px);
         }
 
         p {
             font-size: 18px;
-            color: #ccc;
-            transform: translateY(50px);
+            color: #bbb;
+            margin-bottom: 30px;
             opacity: 0;
+            transform: translateY(50px);
         }
 
         .connect {
             margin-top: 20px;
-            transform: translateY(50px);
             opacity: 0;
+            transform: translateY(50px);
         }
 
         .whatsapp-button {
             display: inline-block;
-            margin-top: 10px;
             padding: 10px 20px;
             background-color: #25d366;
             color: #fff;
@@ -77,75 +76,96 @@
             font-weight: bold;
             text-decoration: none;
             border-radius: 5px;
+            transition: transform 0.2s ease-in-out;
         }
 
         .whatsapp-button:hover {
+            transform: scale(1.1);
             background-color: #1da851;
+        }
+
+        /* Glowing Particles */
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
+            filter: blur(2px);
+            animation: moveParticles 10s linear infinite;
+        }
+
+        @keyframes moveParticles {
+            0% {
+                transform: translateY(0) scale(0.8);
+                opacity: 1;
+            }
+            50% {
+                transform: translateY(-300px) scale(1.2);
+                opacity: 0.5;
+            }
+            100% {
+                transform: translateY(-600px) scale(0.6);
+                opacity: 0;
+            }
         }
     </style>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 </head>
 <body>
-    <svg class="background">
-        <defs>
-            <radialGradient id="galaxy" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
-                <stop offset="0%" style="stop-color: rgba(255, 255, 255, 0.7);" />
-                <stop offset="70%" style="stop-color: rgba(0, 0, 0, 0.2);" />
-                <stop offset="100%" style="stop-color: rgba(0, 0, 0, 0.8);" />
-            </radialGradient>
-        </defs>
-        <rect x="0" y="0" width="100%" height="100%" fill="url(#galaxy)"></rect>
-        <g class="stars">
-            <!-- Small stars -->
-            <circle cx="50%" cy="20%" r="2" fill="#fff" />
-            <circle cx="30%" cy="80%" r="2" fill="#fff" />
-            <circle cx="70%" cy="50%" r="1.5" fill="#fff" />
-            <circle cx="80%" cy="30%" r="1.5" fill="#fff" />
-            <circle cx="20%" cy="60%" r="1.5" fill="#fff" />
-            <!-- Medium stars -->
-            <circle cx="60%" cy="40%" r="3" fill="#fff" />
-            <circle cx="40%" cy="70%" r="3" fill="#fff" />
-        </g>
-    </svg>
+    <div class="particles">
+        <!-- Particles -->
+        <div class="particle" style="left: 20%; animation-duration: 12s;"></div>
+        <div class="particle" style="left: 40%; animation-duration: 15s;"></div>
+        <div class="particle" style="left: 60%; animation-duration: 9s;"></div>
+        <div class="particle" style="left: 80%; animation-duration: 14s;"></div>
+        <div class="particle" style="left: 50%; animation-duration: 10s;"></div>
+    </div>
 
     <div class="container">
-        <img src="/logo.png" alt="Indus Soul Logo" class="logo">
-        <h1>We Are Coming Soon!</h1>
-        <p>Stay tuned for something amazing. We're working hard to bring you the best experience.</p>
-        <div class="connect">
-            <p>Connect with us:</p>
-            <a href="https://wa.me/919499787001" class="whatsapp-button" target="_blank">WhatsApp Us</a>
+        <img src="logo.png" alt="Indus Soul Logo" class="logo">
+        <h1>Indus Soul - Coming Soon!</h1>
+        <div class="product-box">
+            <p>We're crafting something incredible for you. Stay tuned!</p>
+            <div class="connect">
+                <a href="https://wa.me/919499787001" class="whatsapp-button" target="_blank">Connect on WhatsApp</a>
+            </div>
         </div>
     </div>
 
     <script>
-        // GSAP Animations for content
-        gsap.to(".container", {duration: 1, opacity: 1, delay: 0.5});
-        gsap.to(".logo", {duration: 1, scale: 1, delay: 1, ease: "elastic.out(1, 0.5)"});
-        gsap.to("h1", {duration: 0.8, opacity: 1, y: 0, delay: 1.5});
-        gsap.to("p", {duration: 0.8, opacity: 1, y: 0, delay: 1.8});
-        gsap.to(".connect", {duration: 0.8, opacity: 1, y: 0, delay: 2.1});
+        // GSAP Animations
+        gsap.timeline()
+            // Logo Animation
+            .to(".logo", { duration: 1, opacity: 1, scale: 1, rotate: "360deg", ease: "power4.out" })
+            // Heading Animation
+            .to("h1", { duration: 0.8, opacity: 1, y: 0, ease: "back.out(1.7)" }, "-=0.5")
+            // Product Box Animation
+            .to(".product-box", { duration: 1, opacity: 1, y: 0, ease: "power2.out" }, "-=0.3")
+            // Text and Button Animation
+            .to(".connect", { duration: 0.8, opacity: 1, y: 0, ease: "power2.out" }, "-=0.3");
 
-        // Background Animation: Stars
-        gsap.to(".stars circle", {
-            duration: 2,
-            y: "+=10",
-            repeat: -1,
-            yoyo: true,
-            stagger: {
-                amount: 1,
-                grid: "auto",
-                ease: "sine.inOut"
-            }
-        });
-
-        // Background Animation: Pulsing galaxy effect
-        gsap.to("#galaxy", {
-            duration: 5,
-            r: "60%",
-            repeat: -1,
-            yoyo: true,
-            ease: "sine.inOut"
+        // Particles - Position Reset (Loop)
+        const particles = document.querySelectorAll('.particle');
+        particles.forEach(p => {
+            gsap.to(p, {
+                duration: Math.random() * 10 + 5,
+                x: Math.random() * 200 - 100,
+                y: -600,
+                repeat: -1,
+                delay: Math.random() * 5,
+                ease: "none"
+            });
         });
     </script>
 </body>
