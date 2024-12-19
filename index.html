@@ -3,143 +3,153 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Indus Soul - Coming Soon</title>
+    <title>Indus Soul</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
         body {
-            margin: 0;
             font-family: 'Poppins', sans-serif;
+            color: #fff;
+            overflow: hidden;
+            height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            overflow: hidden;
-            background: linear-gradient(135deg, #0d1b2a, #1b263b);
-            color: #fff;
+            background: linear-gradient(120deg, #0d1117, #161b22);
         }
 
-        .container {
-            position: relative;
+        .hero {
             text-align: center;
-            z-index: 10;
-        }
-
-        .logo {
-            width: 150px;
-            height: 150px;
-            margin: 0 auto;
-            opacity: 0;
-            transform: scale(0) rotate(0deg);
-        }
-
-        .product-box {
             position: relative;
-            margin-top: 50px;
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-            backdrop-filter: blur(10px);
-            box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: bold;
             opacity: 0;
             transform: translateY(50px);
+            color: #ffffff;
         }
 
-        h1 {
-            font-size: 36px;
-            font-weight: bold;
+        .hero p {
+            font-size: 1.2rem;
+            color: #8b949e;
             margin: 20px 0;
             opacity: 0;
             transform: translateY(50px);
         }
 
-        p {
-            font-size: 18px;
-            color: #bbb;
-            margin-bottom: 30px;
+        .logo {
+            width: 120px;
+            margin: 0 auto 30px;
+            opacity: 0;
+            transform: scale(0);
+        }
+
+        .cta {
+            margin-top: 30px;
             opacity: 0;
             transform: translateY(50px);
         }
 
-        .connect {
-            margin-top: 20px;
-            opacity: 0;
-            transform: translateY(50px);
-        }
-
-        .whatsapp-button {
-            display: inline-block;
-            padding: 10px 20px;
-            background-color: #25d366;
-            color: #fff;
-            font-size: 16px;
-            font-weight: bold;
+        .cta a {
             text-decoration: none;
+            padding: 12px 25px;
+            background: #238636;
+            color: #ffffff;
             border-radius: 5px;
-            transition: transform 0.2s ease-in-out;
+            font-size: 1rem;
+            font-weight: bold;
+            display: inline-block;
+            transition: transform 0.3s ease;
         }
 
-        .whatsapp-button:hover {
+        .cta a:hover {
             transform: scale(1.1);
-            background-color: #1da851;
+            background: #2ea043;
         }
 
-        /* Glowing Particles */
-        .particles {
+        /* Animated Blob in Background */
+        .background-blob {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            pointer-events: none;
+            top: 50%;
+            left: 50%;
+            width: 1200px;
+            height: 1200px;
+            background: radial-gradient(circle at center, rgba(40, 44, 52, 0.8) 0%, transparent 80%);
+            border-radius: 50%;
+            transform: translate(-50%, -50%) scale(1);
+            animation: pulse 8s infinite ease-in-out;
         }
 
+        @keyframes pulse {
+            0%, 100% {
+                transform: translate(-50%, -50%) scale(1);
+            }
+            50% {
+                transform: translate(-50%, -50%) scale(1.2);
+            }
+        }
+
+        /* Particles (Floating Dots) */
         .particle {
             position: absolute;
             width: 8px;
             height: 8px;
-            background: rgba(255, 255, 255, 0.8);
+            background: #ffffff;
+            opacity: 0.1;
             border-radius: 50%;
-            filter: blur(2px);
-            animation: moveParticles 10s linear infinite;
+            animation: float 10s infinite ease-in-out;
         }
 
-        @keyframes moveParticles {
+        @keyframes float {
             0% {
-                transform: translateY(0) scale(0.8);
-                opacity: 1;
+                transform: translateY(0);
+                opacity: 0.2;
             }
             50% {
-                transform: translateY(-300px) scale(1.2);
-                opacity: 0.5;
+                transform: translateY(-300px);
+                opacity: 0.6;
             }
             100% {
-                transform: translateY(-600px) scale(0.6);
-                opacity: 0;
+                transform: translateY(0);
+                opacity: 0.2;
             }
         }
+
+        /* Particle Randomization */
+        .particle:nth-child(1) { left: 10%; animation-duration: 8s; }
+        .particle:nth-child(2) { left: 25%; animation-duration: 12s; }
+        .particle:nth-child(3) { left: 40%; animation-duration: 10s; }
+        .particle:nth-child(4) { left: 60%; animation-duration: 14s; }
+        .particle:nth-child(5) { left: 75%; animation-duration: 11s; }
+        .particle:nth-child(6) { left: 90%; animation-duration: 13s; }
     </style>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 </head>
 <body>
-    <div class="particles">
-        <!-- Particles -->
-        <div class="particle" style="left: 20%; animation-duration: 12s;"></div>
-        <div class="particle" style="left: 40%; animation-duration: 15s;"></div>
-        <div class="particle" style="left: 60%; animation-duration: 9s;"></div>
-        <div class="particle" style="left: 80%; animation-duration: 14s;"></div>
-        <div class="particle" style="left: 50%; animation-duration: 10s;"></div>
-    </div>
+    <div class="background-blob"></div>
 
-    <div class="container">
+    <!-- Floating Particles -->
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+
+    <div class="hero">
         <img src="logo.png" alt="Indus Soul Logo" class="logo">
-        <h1>Indus Soul - Coming Soon!</h1>
-        <div class="product-box">
-            <p>We're crafting something incredible for you. Stay tuned!</p>
-            <div class="connect">
-                <a href="https://wa.me/919499787001" class="whatsapp-button" target="_blank">Connect on WhatsApp</a>
-            </div>
+        <h1>Welcome to Indus Soul</h1>
+        <p>Transforming ideas into powerful digital solutions.</p>
+        <div class="cta">
+            <a href="#get-in-touch">Get in Touch</a>
         </div>
     </div>
 
@@ -147,26 +157,13 @@
         // GSAP Animations
         gsap.timeline()
             // Logo Animation
-            .to(".logo", { duration: 1, opacity: 1, scale: 1, rotate: "360deg", ease: "power4.out" })
+            .to(".logo", { duration: 1.5, opacity: 1, scale: 1, ease: "back.out(1.7)" })
             // Heading Animation
-            .to("h1", { duration: 0.8, opacity: 1, y: 0, ease: "back.out(1.7)" }, "-=0.5")
-            // Product Box Animation
-            .to(".product-box", { duration: 1, opacity: 1, y: 0, ease: "power2.out" }, "-=0.3")
-            // Text and Button Animation
-            .to(".connect", { duration: 0.8, opacity: 1, y: 0, ease: "power2.out" }, "-=0.3");
-
-        // Particles - Position Reset (Loop)
-        const particles = document.querySelectorAll('.particle');
-        particles.forEach(p => {
-            gsap.to(p, {
-                duration: Math.random() * 10 + 5,
-                x: Math.random() * 200 - 100,
-                y: -600,
-                repeat: -1,
-                delay: Math.random() * 5,
-                ease: "none"
-            });
-        });
+            .to("h1", { duration: 1, opacity: 1, y: 0, ease: "power2.out" }, "-=0.5")
+            // Paragraph Animation
+            .to("p", { duration: 1, opacity: 1, y: 0, ease: "power2.out" }, "-=0.5")
+            // Call to Action Button Animation
+            .to(".cta", { duration: 1, opacity: 1, y: 0, ease: "power2.out" }, "-=0.5");
     </script>
 </body>
 </html>
